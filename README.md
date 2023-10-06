@@ -24,11 +24,11 @@ The Virtual Classroom Manager allows you to perform various actions related to v
 3. schedule_assignment [class_name] [assignment_details]: Schedule an assignment for a classroom.
 4. submit_assignment [student_ID] [class_name] [assignment_details]: Submit an assignment by a student.
 
-Additional Functionalities
-5. remove_classroom [class_name]: Remove a classroom.
-6. list_classroom: List all available classrooms.
-7. students_in_class [class_name]: List students in a specific classroom.
-8. exit: Exit the Virtual Classroom Manager.
+### Additional Functionalities
+1. remove_classroom [class_name]: Remove a classroom.
+2. list_classroom: List all available classrooms.
+3. students_in_class [class_name]: List students in a specific classroom.
+4. exit: Exit the Virtual Classroom Manager.
 
 ### Logging
 The program uses logging to provide information, warnings, and errors related to its operation. Logs are displayed with timestamps and log levels for debugging and monitoring.
