@@ -1,8 +1,9 @@
-from last import *
+from main import *
 
 if __name__ == "__main__":
-    custom_welcome_message()
     classroom_manager = VirtualClassRoomManager()
+    print('\n')
+    print("Welcome to the Virtual Classroom Manager!")
 
     while True:
         print("\nCommands:")
@@ -28,6 +29,8 @@ if __name__ == "__main__":
             else:
                 class_name = user_input[1]
                 classroom_manager.create_Room(class_name)
+            print('')
+            print('########################################################################################################')
 
 
         elif user_input[0] == "add_student":
@@ -38,6 +41,8 @@ if __name__ == "__main__":
                 class_name = user_input[2]
                 student = Student(student_ID, class_name)
                 classroom_manager.enroll_student(student, class_name)
+            print('')
+            print('########################################################################################################')
 
 
         elif user_input[0] == "schedule_assignment":
@@ -47,6 +52,8 @@ if __name__ == "__main__":
                 class_name = user_input[1]
                 assignment_details = " ".join(user_input[2:])
                 classroom_manager.schedule_assignment(class_name, assignment_details)
+            print('')
+            print('########################################################################################################')
 
 
         elif user_input[0] == "submit_assignment":
@@ -57,6 +64,8 @@ if __name__ == "__main__":
                 class_name = user_input[2]
                 assignment_details = " ".join(user_input[3:])
                 classroom_manager.submit_assignment(student_ID, class_name, assignment_details)
+            print('')
+            print('########################################################################################################')
 
         # For Additional Functionalities
 
@@ -66,12 +75,16 @@ if __name__ == "__main__":
             else:
                 class_name = user_input[1]
                 classroom_manager.remove_Room(class_name) 
+            print('')
+            print('########################################################################################################')
 
         elif user_input[0] == "list_classroom":
             if len(user_input) != 1:
                 print("Usage: list_classroom")
             else:
                 classroom_manager.list_Room()
+            print('')
+            print('########################################################################################################')
 
         elif user_input[0] == "students_in_class":
             if len(user_input) != 2:
@@ -79,6 +92,8 @@ if __name__ == "__main__":
             else:
                 class_name = user_input[1]
                 classroom_manager.student_in_classroom(class_name)
+            print('')
+            print('########################################################################################################')
 
         elif user_input[0] == "exit":
             print("Exiting the Virtual Classroom Manager.")
@@ -86,6 +101,3 @@ if __name__ == "__main__":
 
         else:
             print("Invalid command. Please try again.")
-
-
-    
