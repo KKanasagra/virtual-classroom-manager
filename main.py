@@ -1,12 +1,4 @@
 import logging                      # For Providing logging funcitionality to the code
-import pyfiglet  
-
-# For ascii art welcome message
-def custom_welcome_message():
-    # ASCII art using pyfiglet
-    ascii_art = pyfiglet.figlet_format("Welcome to Virtual Classroom Manager Program", font="slant")
-    print(ascii_art)
-
 
 
 # Creating a Student class
@@ -138,13 +130,12 @@ class VirtualClassRoomManager:
     def submit_assignment(self, student_ID, class_name, assignment_description):
         classroom = self.find_Room(class_name)
         if classroom:
-            for student in classroom.class_students:
-                if student.student_ID == student_ID:
-                    assignment = Assignment(assignment_description)
-                    assignment.is_submitted = True
-                    self.logger.info(f"Assignment submitted by Student {student_ID} in '{class_name}'.")
-                    return
-            self.logger.warning(f"Student ID '{student_ID}' not found in '{class_name}'.")
+            if student_ID in classroom.class_students:
+                student = classroom.class_students[student_ID]
+                assignment = Assignment(assignment_description)
+                assignment.is_submitted = True
+                self.logger.info(f"Assignment submitted by Student {student_ID} in '{class_name}'.")
+            else:
+                self.logger.warning(f"Student ID '{student_ID}' not found in '{class_name}'.")
         else:
             self.logger.warning(f"Classroom '{class_name}' not found.")
-
